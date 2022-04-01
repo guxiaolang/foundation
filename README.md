@@ -1,0 +1,2 @@
+# foundation
+这是关于Python基础的代码仓库，在此你可以学习到Python代码的基础语法以及异常报错等问题处理，以及基础Python项目经验。
