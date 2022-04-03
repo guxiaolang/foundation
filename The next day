@@ -1,0 +1,526 @@
+# 注释  去解释代码 说明作用
+# 单行注释用 # 号
+
+
+'''
+    我是单引号的多行注释
+    我是单引号的多行注释
+    我是单引号的多行注释
+'''
+
+"""
+    我是双引号的多行注释
+    我是双引号的多行注释
+    我是双引号的多行注释
+"""
+
+# 快速注释  ctrl + /
+# print(123)
+# print(123)
+
+
+# 每一行代表一句话
+# print(123)
+# print(123)
+
+# 缩进
+
+
+# 变量
+"""
+    命名:
+        变量名只能用字母、数字和下划线的任意组合（不能以数字开头）
+        不能以关键字为变量命名
+        不要用中文作为变量名
+        
+    定义:
+        变量名要见名知意, 驼峰命名法
+    
+    特性:
+        程序是从上到下执行的，所以变量必须先定义后使用，否则会报错
+    
+"""
+# 变量名 =(赋值符号) 数值
+
+# import keyword
+
+# height = 180  # 身高
+# weight = 60.1  # 体重
+# a = 60
+
+#
+# height = 60
+# print(height)
+
+
+# 核心数据类型
+# 可变和不可变
+
+
+# 不可变类型
+# type(变量)  返回该变量的数据类型
+# 整型 int （整数）
+# a = 123
+# print(type(a))
+
+
+# 浮点数 float (小数)
+# money = 22.23  # 浮点数
+# print(type(1.23))
+# 十进制小数转二进制发生精度的丢失
+# print(0.2 + 0.2 + 0.2)
+
+
+# 布尔类型 bool  True真 False假
+# b = False
+# print(type(b))
+
+
+# 字符串类型 str
+# s = "我是字符串123456"
+# s = '我是字符串123456'
+
+# 多行字符串 三个引号
+# s = '''
+# 我是第一行
+# 我是第二行
+# 我是第三行
+# '''
+# print(s)
+
+# 索引和切片  str[开始(不写默认再开头0):结束(不写默认在结尾):步长(不写默认为1)]
+# s = "hello Tom"
+#    012345678
+# print(s[-10])
+# print(s[1:5])
+# print(s[::-1])
+# len(str) 返回字符串的长度
+# print(len(s))
+
+# str.strip(去除的符号) 字符串去除首尾符号 不传参默认是空格或者 其他符号
+# s = " # ?#1 2 3#? # ?#"
+# print(s)
+# print(s.strip("1?# "))
+
+
+# str.lstrip  字符串去除首符号
+# s = "###123###"
+# # print(s.lstrip("#"))
+# str.rstrip  字符串去除尾符号
+# print(s.rstrip("#"))
+
+# '符号'.join(str)  拼接字符串
+# s = "一二三四五"
+# print(','.join(s))
+
+
+# str.split("切割符") 从左边开始切割字符串
+# s = "一0二0三0四0五"
+# print(s.split('0', 2))
+
+
+# str.rsplit("切割符", 切割次数) 从右边开始切割字符串
+# s = "一0二0三0四0五"
+# print(s.rsplit('0'))
+
+
+# str.replace("A", "B", 替换多少次)  把A替换成B替换字符串中的字符
+# s = "三三三三三三"
+# print(s.replace("三", "3", 2))
+
+
+# str.find("找谁", 开始, 结束不包括结束位置)  查找值返回在字符串中的索引位  找不到返回-1
+# s = "一0二0三0四0五"
+   # 01 2 3
+# print(s.find("三", 0, 5))
+# print(s[0:5])
+
+# str.index("找谁", 开始, 结束不包括结束位置)  找值返回在字符串中的索引位  找不到会报错
+# s = "一0二0三0四0五"
+   # 01 2 3
+# print(s.index("六"))
+
+# s1 = "123"
+# s2 = "456"
+# print(s1*4)
+
+
+# 转义字符 \
+# \"->"  \'->'  \\->\  \n->换行符  \t->制表符
+# s = "\t第一行\n第二行"
+# print(s)
+
+
+
+# 元组 tuple 一堆数据的整合  元组里面的元素是不能更改和删除元素
+# t = ("1", '1.1', 'True', "字符串")
+#    0   1    2      3
+# t = ()
+# print(type(t))
+
+# 索引和切片
+# print(t[3])
+# print(t[1:3])
+
+
+# len() 求长度
+# print(len(t))
+
+
+# ','.join(tuple) 拼接成一个字符串 元组里面的元素一定都要是字符串类型
+# print(','.join(t))
+
+# t = ("1", '1.1', 'True', "字符串")
+# t[0] = 0
+
+# 元组添加元素
+# t1 = (1, 2, 3)
+# t2 = ("4", 5, 6)
+# print(t1 + t2)
+# print(t1)
+
+
+# 可变类型
+# 列表 list  一堆数据的整合  列表里面的元素是能更改和删除元素
+# l = ['1', '1.1', 'True', "字符串"]
+
+# 索引和切片
+# print(l[3])
+# print(l[1:3])
+
+
+# len() 求长度
+# print(len(l))
+
+# ','.join(tuple) 拼接成一个字符串 列表里面的元素一定都要是字符串类型
+# print('-'.join(l))
+
+
+# l = [1, 2, 3]
+# print(l.index(1))
+
+# 添加元素
+# list.append(添加的元素) 添加一个元素在列表末尾
+# l = [1,2,3]
+# l.append(4)
+# print(l)
+
+
+# list.insert(哪个索引位置, 插入什么元素) 在指定位置添加元素
+# l = [1, 2, 3]
+#    0  1  2
+# l.insert(3, 0)
+# print(l)
+
+
+# list.extend() 在列表末尾添加多个值
+# l = [1, 2, 3]
+# l2 = "000"
+#     012
+# l.extend(l2)
+# print(l)
+
+
+# l1 = [1,2,3]
+# l2 = [4,5,6]
+# print(l1+l2)
+
+
+# 修改
+# l = [1, 2, 3]
+# l[0] = 0
+# print(l)
+
+
+# 删除
+# list.pop(索引) 不传参默认推末尾元素  推出指定位置的元素
+# l = [1, 2, 3]
+# print(l.pop(1))
+# print(l)
+
+# list.remove() 删除列表中指定元素  如果删除值不存在则报错
+# l = [1, 2, 2, 3, "我"]
+# l.remove("我")
+# print(l)
+
+
+# del 删除指定值
+# l = [1, 2, 2, 3, "我"]
+# del l[0]
+# print(t)
+
+# list.clear()  删除所有元素
+# l = [1, 2, 2, 3, "我"]
+# l.clear()
+# print(l)
+
+
+# list.sort() 排序
+# l = ['a1', 1, 'b1']
+#     97  65
+# l.sort(reverse=False)
+# print(l)
+
+
+# 字典 dict  {key:value} key只能是不可变类型 value什么类型都可以  key(键)是唯一的
+# d = {'name': "abc", "height": 170, "weight": 60, "money": 20.1, 1: "abc1"}
+# print(d['abc'])
+
+# 添加键值对
+# d["123"] = 0
+# print(d)
+
+
+# 修改键值对
+# d["name"] = "000"
+# print(d)
+
+
+# 删除键值对
+# dict.pop(key) 推出键值对
+# d = {'name': "abc", "height": 170, "weight": 60, 1: "abc1"}
+# print(d.pop("name"))
+# print(d)
+
+
+# del
+# d = {'name': "abc", "height": 170, "weight": 60, 1: "abc1"}
+# del d["name"]
+# print(d)
+
+# dict.clear()
+# d = {'name': "abc", "height": 170, "weight": 60, 1: "abc1"}
+# d.clear()
+# print(d)
+
+
+# {}.fromkeys(key, value)  key会拆开 但是value不会
+# d = {}.fromkeys((11,21,31), [1,2,3])
+# print(d)
+
+
+# dict.keys() 返回字典的全部键
+# d = {'name': "abc", "height": 170, "weight": 60, 1: "abc1"}
+# print(d.keys())
+
+
+# dict.values() 返回字典的全部值
+# d = {'name': "abc", "height": 170, "weight": 60, 1: "abc1"}
+# print(d.values())
+
+
+# dict.items() 返回字典的全部值
+# d = {'name': "abc", "height": 170, "weight": 60, 1: "abc1"}
+# print(d.items())
+
+
+# dict.get(key, 默认值)
+# d = {'name': "abc", "height": 170, "weight": 60}
+# print(d.get(23))
+
+
+# dict.update(另一个字典)
+# d1 = {'name': "abc", "height": 170}
+# d2 = {1: "一", 2: "二"}
+# d1.update(d2)
+# print(d1)
+
+
+# 集合 set  集合里面的元素是唯一的 只能存储不可变类型 无序
+# s = {0,1,2,3,4}
+# s = set()
+# print(s)
+# print(type(s))
+
+
+# 添加元素
+# set.add()
+# s = {99,88,101,-80}
+# {99, 4, 101, -80, 88}
+# s.add(40)
+# print(s)
+
+# set.update(序列)
+# s = {99,88,101,-80}
+# s.update((1,2,3))
+# print(s)
+
+
+# 删除元素
+# set.remove(指定值) 删除指定的值 不存在会报错
+# s = {99,88,101,-80}
+# s.remove(1)
+# print(s)
+
+
+# set.discard(指定值)  删除指定的值 不存在不会报错
+# s = {99,88,101,-80}
+# s.discard(1)
+# print(s)
+
+
+# set.pop() 随机删除
+# s = {99, 88, 101, -80, 'a', 10.1}
+# s.pop()
+# print(s)
+
+
+# set.clear() 清空整个集合
+# s = {99, 88, 101, -80, 'a', 10.1}
+# s.clear()
+# print(s)
+
+
+# set1 = {1, 2, 3, 4}
+# set2 = {3, 4, 5, 6}
+# set2 = set()
+
+# 集合的差
+# print(set1 - set2)
+
+# 集合的交
+# print(set1 & set2)
+
+
+# 集合的并
+# print(set1 | set2)
+
+
+# 集合的对称差
+# print(set1 ^ set2)
+
+
+# 变量的存储
+# id()返回变量的地址
+# a = {1,2,3}
+
+# 字典的存储  通过key 映射成 地址 然后找到指定的值
+# b = {"A":1, "B":1}
+# print(id(b["A"]), id(b["B"]))
+
+
+# 可变和不可变
+
+# 不可变类型 int float str bool tuple
+# 值发生改变 内存也会发生改变
+# a = 2
+# b = 2
+# print(id(a), id(b))
+# 1659527392
+# 1659527392
+# a = 1
+# print(id(a), id(b))
+# 1659527392
+# 1659527424
+
+
+# 可变类型 list dict set
+# 值发生改变 内存不会发生改变
+# a = {1, 2, 3}
+# b = {1, 2, 3}
+
+# 修改前
+# print(id(a), id(b))
+
+# a.add(4)
+# 修改后
+# print(id(a), id(b))
+
+
+# is和==的区别
+# is 比较的是地址  ==比较的是值
+# a = [1,2,3]
+# b = [1,2,3]
+
+# a = (1,2,3)
+# b = (1,2,3)
+# print(a, b)
+# 2075288197512
+# 2075288197576
+# print(a is b)
+
+
+
+# 深拷贝和浅拷贝
+import copy
+
+
+# 不可变类型的深拷贝和浅拷贝
+
+# 浅拷贝
+# a = (1, [2,3])
+# b = copy.copy(a)
+# print(a)
+# print(b)
+# print(id(a))
+# print(id(b))
+
+
+# 深拷贝
+
+# 当元组里面有可变类型的时候 地址会发生改变
+# c = (1, [2,3])
+# d = copy.deepcopy(c)
+# print(c)
+# print(d)
+# print(id(c[0]))
+# print(id(d[0]))
+
+
+# 可变类型的深拷贝和浅拷贝
+
+# 浅拷贝
+# l1 = [1,2,3, [4,5]]
+# l2 = copy.copy(l1)
+# print("l1:",id(l1))
+# print("l2:",id(l2))
+# print("l1的深层:",id(l1[3]))
+# print("l2的深层:",id(l2[3]))
+
+# 深拷贝
+# l1 = [1,2,3, [4,5, [6,7]]]
+# l2 = copy.deepcopy(l1)
+# print("l1:",id(l1))
+# print("l2:",id(l2))
+# print("l1的深层2:",id(l1[3]))
+# print("l2的深层2:",id(l2[3]))
+# print("l2的深层3:",id(l2[3][2]))
+# print("l2的深层3:",id(l2[3][2]))
+# l2[3] -》 [4,5, [0,0]] []
+# print(l2[3][2])
+# print(l2[3][2])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
