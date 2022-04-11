@@ -1,0 +1,53 @@
+#  搜索音乐链接  http://www.kuwo.cn/api/www/search/searchMusicBykeyWord?key=%E5%91%A8%E6%9D%B0%E4%BC%A6&pn=1&rn=30
+
+# 下载音乐链接    http://www.kuwo.cn/api/v1/www/music/playUrl?mid=83728113&type=music
+import re
+
+import requests  # 发送网络请求
+
+# 1. 向 搜索接口 发送请求
+url = 'http://www.kuwo.cn/api/www/artist/artistMusic?artistid=2724951&pn=1&rn=30&httpsStatus=1&reqId=e3a96bd0-5d54-11ec-8462-33e8b9faed94'
+# 伪装 / 请求头
+headers = {
+    'Cookie': '_ga=GA1.2.198854340.1639475001; _gid=GA1.2.1622074267.1639475001; Hm_lvt_cdb524f42f0ce19b169a8071123a4797=1639530584,1639530665,1639531966,1639531979; Hm_lpvt_cdb524f42f0ce19b169a8071123a4797=1639532203; kw_token=6ZMRPJCC65X',
+    'csrf': '6ZMRPJCC65X',
+    'Host': 'www.kuwo.cn',
+    'Referer': 'http://www.kuwo.cn/search/list?key=%E5%91%A8%E6%9D%B0%E4%BC%A6',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36 Edg/96.0.1054.53'
+}
+response = requests.get(url=url, headers=headers)
+# print(response)
+
+# 2. 获取数据 json
+json_data = response.json()
+
+# 3. 提取想要的  音乐id  音乐名称  歌手名称  专辑名称
+data_list = json_data['data']['list']
+for data in data_list:
+    song_name = data['name']    # 歌曲名称
+    singer_name = data['artist']    # 歌手名称
+    # album_name = data['album']  # 专辑名称
+    rid = data['rid']   # 音乐 id  用来下载音乐
+
+    # 4. 通过音乐 id  找到音乐地址/拼接音乐地址
+    music_info_url = f'https://www.kuwo.cn/api/v1/www/music/playUrl?mid={rid}&type=convert_url3&br=320kmp3'
+    # print(music_info_url)
+
+    # 5. 对生成音乐地址的链接发送请求
+    music_json = requests.get(url=music_info_url, headers=headers).json()
+    music_url = music_json['data']['url']
+
+    # 6. 向音乐地址发送请求  获取音乐二进制数据
+    music_data = requests.get(music_url).content
+    song_name = re.sub(r'[\/:"<>|*?]', '', song_name)
+    with open(f'download/{song_name}-{singer_name}.mp3', mode='wb')as f:
+        f.write(music_data)
+    print(song_name, "爬取成功.")
+
+
+
+
+
+
+
+
